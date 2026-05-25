@@ -259,6 +259,18 @@
                         // RECARREGA A PÁGINA INTEIRA com formulário limpo
                         window.location.href = 'UsuarioNovo';
                     });
+                 } else if (data == 2) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'E-mail já cadastrado!',
+                        showConfirmButton: true,
+                        timer: 5000
+                    }).then(function () {
+                        setTimeout(function () {
+                            $('#nome').focus();
+                        }, 50); 
+                    });
                 } else if (data == 3) {
                     Swal.fire({
                         position: 'center',

@@ -57,8 +57,9 @@ public class UsuarioCadastrar extends HttpServlet {
 
             double salario = Double.parseDouble(salarioStr);
             
-            //Tratamento para o CPF
-            if (!DocumentoValidador.isDocumentoValido(cpf)){
+            if (dao.emailExiste(email) && id == 0){
+                response.getWriter().write("2");
+            } else if (!DocumentoValidador.isDocumentoValido(cpf)){
                 //verifica se cpf é valido
                 response.getWriter().write("3");
             } else if (dao.cpfExiste(cpf) && id == 0){
